@@ -23,13 +23,28 @@ public class Movie {
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("video")
+    @Expose
+    private Boolean video;
+    @SerializedName("backdrop_path")
+    @Expose
+    private String backdrop_path;
 
-    public Movie(String original_title, String posterPath, String overview, Double voteAverage, String releaseDate) {
+
+    public Movie(String original_title, String posterPath, String overview, Double voteAverage, String releaseDate, Integer id,String backdrop_path) {
         this.original_title = original_title;
         this.posterPath = posterPath;
         this.overview = overview;
         this.voteAverage = voteAverage;
         this.releaseDate = releaseDate;
+        this.id = id;
+        this.backdrop_path = backdrop_path;
+    }
+
+    public Movie() {
     }
 
     public String getOriginal_title() {
@@ -42,6 +57,10 @@ public class Movie {
 
     public String getPosterPath() {
         return "http://image.tmdb.org/t/p/w185" + posterPath;
+    }
+
+    public String getOriginalPath(){
+        return "http://image.tmdb.org/t/p/original".concat(posterPath);
     }
 
     public void setPosterPath(String posterPath) {
@@ -70,5 +89,21 @@ public class Movie {
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getBackdrop_path() {
+        return "https://image.tmdb.org/t/p/w500"+backdrop_path;
+    }
+
+    public void setBackdrop_path(String backdrop_path) {
+        this.backdrop_path = backdrop_path;
     }
 }
