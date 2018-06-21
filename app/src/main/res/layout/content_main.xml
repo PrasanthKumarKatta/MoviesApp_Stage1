@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,8 +9,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.kpcode4u.prasanthkumar.moviesapp.MainActivity"
     tools:showIn="@layout/activity_main"
-    android:layout_marginTop="@dimen/activity_vertical_margin">
-
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    >
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
@@ -17,5 +18,4 @@
         android:clipToPadding="false"
         android:scrollbars="vertical"
         />
-
 </RelativeLayout>

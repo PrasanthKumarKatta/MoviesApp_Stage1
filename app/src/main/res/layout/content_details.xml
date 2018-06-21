@@ -1,73 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/LinearLayout_Details_style"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearLayout_Details_style"
+    android:layout_marginBottom="5dp"
     android:background="@color/view_bg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".DetailsActivity"
-    tools:showIn="@layout/activity_details">
-    <android.support.v7.widget.CardView
+    tools:showIn="@layout/activity_details"
+    >
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp">
-        <ScrollView
-            style="@style/relativeLayout_Details_style"
-            >
-            <LinearLayout
-                style="@style/LinearLayout_Details_style"
-                >
-                <TextView
-                    android:id="@+id/movieTitle"
-                    android:text="@string/name_movie"
-                    style="@style/content_details_TextView_label"
-                    android:layout_marginTop="10dp"
-                    />
-                <TextView
-                    android:id="@+id/title_details"
-                    style="@style/content_details_TextView"
-                    android:layout_below="@+id/movieTitle"
-                    />
-                <TextView
-                    android:id="@+id/plot"
-                    android:text="@string/plot"
-                    style="@style/content_details_TextView_label"
-                    android:layout_marginTop="@dimen/layout_margin_top"
-                    android:layout_below="@+id/title"
-                    />
-                <TextView
-                    android:id="@+id/plotSynopsis"
-                    style="@style/content_details_TextView"
-                    android:layout_below="@+id/plot"
-                    />
-                <TextView
-                    android:id="@+id/rating"
-                    android:text="@string/rating"
-                    style="@style/content_details_TextView_label"
-                    android:layout_marginTop="@dimen/layout_margin_top"
-                    android:layout_below="@+id/plotSynopsis"
-                    />
-                <TextView
-                    android:id="@+id/user_Rating"
-                    style="@style/content_details_TextView"
-                    android:layout_below="@+id/rating"
-                    />
-                <TextView
-                    android:id="@+id/release"
-                    android:text="@string/release"
-                    style="@style/content_details_TextView_label"
-                    android:layout_marginTop="@dimen/layout_margin_top"
-                    android:layout_below="@+id/user_Rating"
-                    />
-                <TextView
-                    android:id="@+id/release_dates"
-                    style="@style/content_details_TextView"
-                    android:layout_below="@+id/release"
-                    />
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        tools:showIn="@layout/activity_details">
 
-            </LinearLayout>
-        </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="5dp"
+                android:layout_margin="5dp">
 
-</RelativeLayout>
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/thumbnail_img_header"
+                        android:layout_width="149dp"
+                        android:layout_height="190dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="8dp"
+                        android:src="@mipmap/ic_launcher"
+                        app:layout_constraintBottom_toTopOf="@+id/view"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.036"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/title_details"
+                        android:layout_width="182dp"
+                        android:layout_height="24dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="sans-serif"
+                        android:text="title"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/thumbnail_img_header"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlCompat" />
+
+                    <TextView
+                        android:id="@+id/release"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="serif"
+                        android:text="Releasing \nDate    :"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/thumbnail_img_header"
+                        app:layout_constraintTop_toBottomOf="@+id/favorite_button" />
+
+                    <TextView
+                        android:id="@+id/release_dates"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="sans-serif"
+                        android:text="title"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/release"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.214"
+                        app:layout_constraintStart_toEndOf="@+id/release"
+                        app:layout_constraintTop_toTopOf="@+id/release"
+                        app:layout_constraintVertical_bias="0.363" />
+
+                    <com.github.ivbaranov.mfb.MaterialFavoriteButton
+                        android:id="@+id/favorite_button"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="168dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/colorPrimary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.368"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/thumbnail_img_header"
+                        app:layout_constraintTop_toBottomOf="@+id/user_Rating" />
+
+
+                    <TextView
+                        android:id="@+id/user_Rating"
+                        android:layout_width="35dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif"
+                        android:foregroundGravity="center_horizontal"
+                        android:gravity="start"
+                        android:paddingTop="5dp"
+                        android:text="title"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.071"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/thumbnail_img_header"
+                        app:layout_constraintTop_toBottomOf="@+id/title_details"
+                        tools:ignore="RtlCompat" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/thumbnail_img_header" />
+
+                    <TextView
+                        android:id="@+id/plot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title_details"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="serif"
+                        android:text="Description"
+                        android:textAlignment="center"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                    <TextView
+                        android:id="@+id/plotSynopsis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif"
+                        android:paddingLeft="10dp"
+                        android:text="title"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/plot" />
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000"
+                />
+
+            <TextView
+                android:id="@+id/trailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:paddingLeft="5dp"
+                android:text="@string/trailer"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_trailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:id="@+id/reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="@string/reviews"
+                android:textSize="30sp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:layout_marginLeft="10dp"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>
